@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="Buy sourdough or donate to help Akiba Yavneh Academy students build robots. A $2,000 community goal, matched by our school.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>We need your help. — AYA Robotics</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:Fraunces;src:url('assets/fonts/fraunces-latin.woff2') format('woff2');font-weight:400 500;font-display:swap}
+    @font-face{font-family:Instrument;src:url('assets/fonts/instrument-sans-latin.woff2') format('woff2');font-weight:400 600;font-display:swap}
+    @font-face{font-family:SpaceMono;src:url('assets/fonts/space-mono-latin.woff2') format('woff2');font-weight:400;font-display:swap}
+
+    :root{--paper:#f7f3eb;--ink:#352720;--muted:#6e5e52;--wine:#742b35;--wine-dark:#57202a;--line:#d9d0c3;--warm:#eee5d6;--white:#fffdf8;--gutter:clamp(22px,5vw,80px);--bar-height:80px;--stage-height:100svh;--story-run:0px}
+    *{box-sizing:border-box}html{scroll-padding-top:0}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Instrument,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    [hidden]{display:none!important}a{color:inherit;text-underline-offset:.25em}a,button{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--wine);outline-offset:5px}h1,h2,h3,p,figure{margin:0}h1,h2{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.07;letter-spacing:-.045em;text-wrap:balance}img{display:block;max-width:100%;height:auto}button{border:0}
+    .wrap{width:min(100% - var(--gutter)*2,1160px);margin-inline:auto}.eyebrow{font:11px/1.5 SpaceMono,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}.skip{position:fixed;top:12px;left:12px;z-index:100;background:var(--paper);padding:10px 18px;transform:translateY(-180%)}.skip:focus{transform:none}
+    .story{position:relative;isolation:isolate}.story.is-scroll{height:calc(var(--stage-height) + var(--story-run))}.story-stage{position:relative;height:var(--stage-height);min-height:480px;overflow:hidden;background:#e9ddc4}.is-scroll .story-stage{position:sticky;top:0}
+    .story-header{position:absolute;top:max(25px,env(safe-area-inset-top));left:var(--gutter);right:var(--gutter);display:flex;align-items:start;justify-content:space-between;gap:20px;z-index:5}.wordmark{font-size:12px;line-height:1.4;text-decoration:none;font-weight:600}.wordmark span{display:block;font-size:10px;font-weight:400;margin-top:3px}.skip-story{font-size:12px;text-decoration:none;min-height:44px;display:flex;align-items:center;gap:12px}.skip-story:hover{text-decoration:underline}
+    .media-frame,.media-frame picture,.media-frame img,.media-frame video{position:absolute;inset:0;width:100%;height:100%}.media-frame img,.media-frame video{object-fit:cover;object-position:center bottom}.media-frame{pointer-events:none}.start-picture{opacity:0}.is-scroll .start-picture{opacity:1}.end-picture{opacity:1}.media-frame video{opacity:0}.has-video video{opacity:1}.is-static video{opacity:0}.is-scroll.is-ending .start-picture{opacity:0}
+    .is-final-frame .media-frame video{opacity:0}
+    .story-beats{position:absolute;z-index:2;top:16%;left:var(--gutter);right:var(--gutter);text-align:center}.story-beat{display:none;margin-inline:auto;max-width:850px}.story-beat:first-child{display:block}.is-scroll .story-beat{display:block;position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden;pointer-events:none;will-change:opacity,transform}.is-scroll .story-beat.active{visibility:visible;pointer-events:auto}.story-beat h1,.story-beat h2{font-size:clamp(36px,4.7vw,72px)}.story-beat h2 span{display:block}.story-beat .eyebrow{margin-bottom:15px}.story-beat .actions{justify-content:center;margin-top:20px}.match-beat h2 span+span{margin-top:.12em}.story-beat .story-date{font-size:14px;margin-top:15px}
+    .story-tools{position:absolute;z-index:4;bottom:calc(var(--bar-height) + 14px);left:var(--gutter);right:var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11px}.story-progress{display:flex;align-items:center;gap:14px;white-space:nowrap;font-family:SpaceMono,monospace}.story-progress-line{width:72px;height:1px;background:rgba(53,39,32,.25)}.story-progress-line i{display:block;height:1px;background:var(--ink);transform-origin:left;transform:scaleX(var(--story-progress,0))}.preview-note{position:absolute;z-index:4;bottom:calc(var(--bar-height) + 62px);right:var(--gutter);font-size:10px;background:rgba(247,243,235,.9);padding:4px 9px;border-radius:3px}.story-transcript{padding:35px var(--gutter);background:var(--paper);max-width:850px;margin:auto}.story-transcript p+p{margin-top:12px}.story-transcript strong{font-weight:600}.is-scroll+.story-transcript{display:none}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border:1px solid var(--wine);border-radius:3px;background:var(--wine);color:var(--white);font-size:14px;font-weight:600;text-decoration:none;line-height:1.3;text-align:center}.button:hover{background:var(--wine-dark);border-color:var(--wine-dark)}.deadline{font-size:12px;color:var(--muted);margin-top:12px}.section-heading{font-size:clamp(35px,4vw,54px)}
+    .details{position:relative;background:var(--paper);z-index:1}.details>.wrap{max-width:1040px}.details h2{font-size:clamp(28px,2.7vw,38px);line-height:1.15;letter-spacing:-.035em}
+    .sale-section{padding:76px 0 56px}.sale-section h2{font-size:clamp(40px,4.2vw,60px)}.sale-facts{display:grid;grid-template-columns:1.15fr 1fr 1.2fr;gap:40px;margin:32px 0 28px}.sale-facts dt{font-size:12px;color:var(--muted);margin-bottom:8px}.sale-facts dd{margin:0;font-size:21px;line-height:1.45;letter-spacing:-.02em}.pickup-logistics{display:block;font-size:13px;line-height:1.5;color:var(--muted);letter-spacing:0;margin-top:7px}.sale-actions{display:flex;align-items:center;flex-wrap:wrap;gap:24px}.sale-actions .button{min-width:165px}.donation-link{display:inline-flex;align-items:center;min-height:44px;color:var(--wine);font-size:14px}
+    .funding-section{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;border-top:1px solid var(--line);padding:48px 0}.funding-copy>p{font-size:15px;line-height:1.7;margin-top:17px;max-width:360px}.budget-list{list-style:none;margin:0;padding:0}.budget-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;padding:12px 0;border-bottom:1px solid var(--line)}.budget-row:first-child{padding-top:3px}.budget-row h3{font:400 15px/1.5 Instrument,Arial,sans-serif}.budget-price{font:12px/1.5 SpaceMono,monospace;white-space:nowrap}.budget-note{font-size:12px;color:var(--muted);margin-top:12px}.progress-block{margin-top:20px;max-width:400px}.progress-block label{display:flex;justify-content:space-between;gap:12px;font-size:12px}.progress-block progress{width:100%;height:5px;accent-color:var(--wine)}
+    .class-section{border-top:1px solid var(--line);padding:38px 0}.class-note{font-size:15px;max-width:600px;margin-top:14px}.class-art{position:relative;margin-top:28px;overflow:hidden}.class-art #class-photo{width:100%;height:auto;max-height:640px;object-fit:contain}.class-art .illustration{position:absolute;inset:0;width:100%;height:calc(100% - 28px);object-fit:contain;transition:opacity 1.2s ease}.class-art.revealed .illustration{opacity:0}.class-art figcaption{font-size:11px;color:var(--muted);margin-top:8px;min-height:20px}
+    .support-info{max-width:650px;font-size:12px;line-height:1.6;color:var(--muted);padding:0 0 26px}.support-info h2{font:500 12px/1.6 Instrument,Arial,sans-serif;letter-spacing:0;margin-bottom:3px}.site-footer{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;font-size:11px;color:var(--muted);padding:22px 0 calc(var(--bar-height) + 28px);border-top:1px solid var(--line)}.site-footer a{padding:10px 0;white-space:nowrap}
+    .support-bar{position:fixed;z-index:30;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px var(--gutter) max(13px,env(safe-area-inset-bottom));background:rgba(247,243,235,.96);border-top:1px solid var(--line)}body.in-story .support-bar{background:transparent;border-color:transparent;pointer-events:none}.support-bar>div{pointer-events:auto}.support-bar .actions{margin:0;flex-wrap:nowrap}.support-bar .button{min-width:158px}.bar-copy{font-size:12px}.bar-copy strong{font-weight:500}.bar-copy span{display:block;color:var(--muted);font-size:10px}.support-bar .deadline{display:none}body.in-story .bar-copy{opacity:0;pointer-events:none}
+    dialog{border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);padding:30px;max-width:440px;width:calc(100% - 36px)}dialog::backdrop{background:rgba(40,30,24,.45)}dialog h2{font-size:30px}dialog p{font-size:15px;margin-top:16px}dialog form{margin-top:24px}
+    @media(max-width:760px){:root{--gutter:23px}.story-header{top:max(20px,env(safe-area-inset-top));gap:15px}.wordmark{font-size:11px;max-width:150px}.wordmark span{font-size:9px}.skip-story{font-size:10px;gap:5px}.story-beats{top:17%;left:22px;right:22px}.story-beat h1,.story-beat h2{font-size:clamp(34px,8.8vw,54px)}.story-beat .eyebrow{font-size:9px;margin-bottom:15px}.story-beat .actions{gap:8px;margin-top:16px}.story-beat .button{font-size:12px;padding:10px 12px;min-height:44px}.story-tools{bottom:calc(var(--bar-height) + 8px);gap:8px}.story-progress{font-size:9px;gap:8px}.story-progress-line{width:34px}.preview-note{bottom:calc(var(--bar-height) + 53px);font-size:9px}.support-bar{padding-inline:18px;gap:0}.support-bar .bar-copy{display:none}.support-bar>div:last-child{width:100%}.support-bar .button{flex:1;min-width:0;padding-inline:12px;font-size:13px}.story-transcript{font-size:15px}}
+    @media(max-height:650px) and (min-width:761px){.story-beats{top:15%}.story-beat h1,.story-beat h2{font-size:clamp(32px,4vw,50px)}.story-beat .eyebrow{margin-bottom:9px}.story-beat .actions{margin-top:10px}.story-beat .button{min-height:44px;padding:8px 16px}.story-header{top:15px}}
+    @media(max-width:760px){.story-beat .actions{display:none}}
+    .story.measuring-story .story-beat{display:block;position:absolute;visibility:hidden}.match-beat b{font-weight:400}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}.class-art .illustration{opacity:0}.story-stage{position:relative!important}.start-picture{opacity:0!important}}
+    .story.is-readable .story-stage{height:auto;min-height:var(--stage-height);padding-bottom:calc(var(--bar-height) + 95px)}.is-readable .story-beats{position:relative;top:auto;left:auto;right:auto;padding:120px var(--gutter) 45vh;background:linear-gradient(var(--paper),rgba(247,243,235,.88) 55%,transparent)}.is-readable .story-beat h1{font-size:clamp(36px,8vw,72px)}
+    .media-frame .detail-image{opacity:0}.media-frame .detail-image.active{opacity:1}
+    .is-detail .story-beats{text-align:left;right:auto;width:min(42%,570px);top:13%}.is-detail .story-beat h2{font-size:clamp(32px,3.8vw,54px)}
+    .story-beat h1,.story-beat h2,.story-beat>.eyebrow,.story-date{text-shadow:0 1px 6px rgba(247,243,235,.88),0 0 18px rgba(247,243,235,.55)}
+    .is-detail .story-beat{margin-left:0}
+    .part-highlight{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}.part-outline{position:absolute;overflow:visible}.part-outline path{fill:none;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}.outline-color{stroke:var(--wine);stroke-width:2.4}.outline-halo{stroke:var(--paper);stroke-width:5.5;opacity:.85}.part-leader{position:absolute;inset:0;width:100%;height:100%}.part-leader path{fill:none;stroke:var(--wine);stroke-width:1.5;stroke-linejoin:round}.part-leader circle{fill:var(--wine);stroke:var(--paper);stroke-width:1.5}
+    .part-label{position:absolute;padding:10px 14px 12px;background:rgba(247,243,235,.97);border-left:3px solid var(--wine);width:max-content;max-width:250px}.part-label strong{display:block;font:400 28px/1.12 Fraunces,Georgia,serif;letter-spacing:-.025em}.part-label span{display:block;font-size:15px;line-height:1.4;margin-top:5px}
+    .version-switch{position:absolute;z-index:6;top:76px;right:var(--gutter);display:flex;padding:3px;gap:3px;border:1px solid rgba(53,39,32,.2);background:rgba(247,243,235,.95);border-radius:25px}.version-switch button{padding:7px 14px;min-height:38px;background:transparent;border-radius:22px;font-size:12px}.version-switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+    
+    @media(max-width:760px){.is-detail .story-beats{top:16%;left:22px;right:22px;width:auto;text-align:center}.is-detail .story-beat{margin-left:auto;max-width:440px}.is-detail .story-beat h2{font-size:clamp(29px,7.7vw,45px)}.part-label{padding:8px 10px 10px;max-width:195px}.part-label strong{font-size:24px}.part-label span{font-size:12px}.outline-color{stroke-width:2}.outline-halo{stroke-width:4.5}.version-switch{top:70px}.version-switch button{font-size:11px;min-height:36px;padding:6px 12px}}
+    @media(max-width:360px){.story-progress{font-size:8px;gap:8px}.story-progress-line{display:none}}
+    .ivory-wash{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0}.focus-shade{opacity:.18}.is-funding .focus-shade{opacity:.10}
+    .part-label{padding:0;background:none;border:0;max-width:240px}.part-label .part-price{font:400 29px/1.15 Fraunces,Georgia,serif;margin-top:10px}
+    .outline-color{stroke-width:4}.outline-halo{stroke-width:8;opacity:.95}.part-leader path{stroke-width:2}
+    .gripper-copy{display:none}.is-gripper .tools-copy{display:none}.is-gripper .gripper-copy{display:block}
+    .is-funding .story-beats{left:var(--gutter);right:var(--gutter);width:auto;text-align:center}.is-funding .story-beat{margin-inline:auto}.match-breakdown{font-size:clamp(17px,1.45vw,21px);line-height:1.5;margin-top:18px}.match-breakdown span{display:block}
+    @media(max-width:760px){.part-label{max-width:195px}.part-label .part-price{font-size:26px;margin-top:8px}.outline-color{stroke-width:3}.outline-halo{stroke-width:6.5}.match-breakdown{font-size:18px;margin-top:20px}}
+    @media(max-height:650px){.match-breakdown{font-size:17px;margin-top:12px}}
+    
+    @media(max-width:760px){.story-beats{top:max(17%,128px)}.is-detail .story-beats{top:max(16%,128px)}}
+    @media(max-width:760px) and (max-height:650px){.is-detail .story-beat>.eyebrow{display:none}.is-detail .story-beat h2{font-size:27px}}
+    .part-label,.match-breakdown{isolation:isolate}.match-breakdown{position:relative}
+    .part-label::before,.match-breakdown::before{content:"";position:absolute;inset:-24px -38px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse,rgba(247,243,235,.96) 15%,rgba(247,243,235,.72) 42%,rgba(247,243,235,0) 72%)}
+    .match-breakdown::before{inset:-25px -10px;background:radial-gradient(ellipse,rgba(247,243,235,.90) 15%,rgba(247,243,235,.62) 42%,rgba(247,243,235,0) 72%)}
+    .is-gripper .story-beats,.is-funding .story-beats{left:48%;right:var(--gutter);width:auto;top:max(10%,108px);text-align:left}
+    .is-gripper .story-beat>.eyebrow{display:none}.story-beat.match-beat h2{font-size:clamp(32px,3.8vw,54px);line-height:1.07;letter-spacing:-.045em}.match-beat h2 [data-total-goal]{display:inline;white-space:nowrap}
+    @media(max-width:760px){.is-gripper .story-beats,.is-funding .story-beats{left:22px;right:22px;top:max(15%,124px);width:auto;text-align:left}.story-beat.match-beat h2{font-size:clamp(29px,7.7vw,45px)}.match-breakdown{font-size:17px;margin-top:14px}}
+    @media(max-width:760px) and (max-height:650px){.story-beat.match-beat h2{font-size:27px}.match-breakdown{font-size:15px;margin-top:12px}}
+    @media(max-width:760px){.sale-section{padding:46px 0 36px}.sale-facts{grid-template-columns:1fr;gap:21px;margin:25px 0}.sale-facts dt{margin-bottom:3px}.sale-facts dd{font-size:21px}.pickup-logistics{margin-top:4px}.sale-actions{gap:22px}.funding-section{grid-template-columns:1fr;gap:24px;padding:34px 0}.funding-copy>p{max-width:540px;margin-top:13px}.class-section{padding:32px 0}.budget-row{gap:16px}.budget-row h3{font-size:14px}.budget-price{font-size:11px}.site-footer{gap:5px 22px;padding-top:16px}.support-info{padding-bottom:20px}}
+    @media(max-width:360px){.sale-section h2{font-size:36px}.sale-actions{gap:16px}.sale-actions .button{min-width:150px}}
+    /* A shared illustration column and reading column organize the lower story. */
+    .details{--butter:#f0cf6d;--blue:#3f607b;--pale-blue:#e0e9ed;background:#faf5e8}.details>.wrap{max-width:1040px;padding-top:76px}.details h2{color:var(--wine);font-size:clamp(30px,3vw,42px)}
+    .sale-section,.match-story,.funding-section,.class-section{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:64px;row-gap:20px;align-items:start;margin:0;padding:36px 0 52px;border:0}
+    .sale-section>h2,.sale-facts,.sale-actions,.match-copy,.funding-copy,.funding-costs,.class-section>h2,.class-note{grid-column:2;min-width:0}
+    .sale-section>h2,.funding-copy,.class-section>h2{grid-row:1}.sale-facts,.funding-costs,.class-note{grid-row:2}.sale-actions{grid-row:3}
+    .sticker{display:block;object-fit:contain;pointer-events:none;user-select:none;width:200px;height:200px}
+    .sticker-loaf,.sticker-tools,.sticker-class,.match-art{grid-column:1;grid-row:1 / span 3;align-self:center;justify-self:center}
+    .match-art{width:200px;height:200px;background:var(--pale-blue);border-radius:50%}.sticker-carrier{width:200px;height:200px}
+    .sale-section h2{font-size:clamp(36px,3.5vw,48px)}.sale-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:6px 0 4px}.sale-facts dt{color:var(--blue);font-size:13px}.sale-facts dd{font-size:18px}.pickup-logistics{font-size:13px}
+    .sale-facts [data-order-deadline],.sale-facts [data-pickup]{display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:linear-gradient(transparent 58%,var(--butter) 58%,var(--butter) 96%,transparent 96%);padding-bottom:2px}.sale-actions .button{border-radius:6px}
+    .match-copy h2{color:var(--blue)}.match-copy p{font-size:18px;line-height:1.7;max-width:580px;margin-top:20px}.match-copy mark{color:inherit;background:var(--butter);padding:1px 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+    .funding-copy>p{font-size:16px;max-width:580px;margin-top:20px}.budget-list{max-width:580px}.budget-row{border:0;padding:7px 0}.budget-row h3{font-size:16px}.budget-price{color:var(--blue);font-size:13px}.budget-note{margin-top:15px}
+    .class-note{font-size:16px;max-width:580px;margin:0}.class-art{grid-column:1 / -1;margin:8px 0 0}.class-section{padding-bottom:40px}
+    .details .support-info h2{font-size:13px;line-height:1.6;letter-spacing:0}.support-info{max-width:none;margin-left:264px;padding:0 0 28px}.site-footer{border:0;padding-top:24px}body:not(.in-story) .support-bar{border-top:0;box-shadow:0 -5px 24px rgba(53,39,32,.045)}
+    @media(min-width:761px) and (max-width:1050px){.sale-section,.match-story,.funding-section,.class-section{grid-template-columns:160px minmax(0,1fr);column-gap:40px}.sticker,.match-art{width:160px;height:160px}.support-info{margin-left:200px}.sale-facts{gap:18px}.sale-facts dd{font-size:17px}}
+    @media(max-width:760px){.details>.wrap{max-width:520px;padding-top:28px}.sale-section,.match-story,.funding-section,.class-section{grid-template-columns:minmax(0,1fr);gap:20px;padding:20px 0 36px;text-align:center}.sticker-loaf,.sticker-tools,.sticker-class,.match-art{grid-column:1;grid-row:1;align-self:start}.sticker,.match-art{width:124px;height:124px}.sale-section>h2,.sale-facts,.sale-actions,.match-copy,.funding-copy,.funding-costs,.class-section>h2,.class-note{grid-column:1;grid-row:auto}.details h2{font-size:32px}.sale-section h2{font-size:36px}.sale-facts{grid-template-columns:1fr;gap:20px;margin:3px 0}.sale-facts dd{font-size:20px}.sale-actions{justify-content:center;gap:16px 22px}.match-copy p{font-size:17px;margin-top:16px}.funding-copy>p{font-size:16px;margin-top:16px}.funding-costs{text-align:left}.budget-list{max-width:360px;margin:auto}.budget-note{text-align:center}.budget-row h3{font-size:15px}.class-note{font-size:16px}.class-art{grid-column:1}.support-info{text-align:center;margin-left:0;padding:0 0 28px}.site-footer{justify-content:center;text-align:center;gap:0 20px}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#project">Skip to fundraiser details</a>
+  <main id="top">
+    <section class="story" aria-label="Our fundraiser story" data-chapter="0">
+      <div class="story-stage">
+        <header class="story-header"><a class="wordmark" href="#top">Akiba Yavneh Academy<span>Robotics enrichment · Dallas, TX</span></a><a class="skip-story" href="#project">Fundraiser details <span aria-hidden="true">↗</span></a></header>
+        <div class="media-frame" aria-hidden="true">
+          <picture class="end-picture"><source media="(max-aspect-ratio: 1/1)" srcset="assets/hero/v1/mobile-end.webp"><img class="end-poster" src="assets/hero/v1/desktop-end.webp" alt="" fetchpriority="high"></picture>
+          <picture class="start-picture"><source media="(max-aspect-ratio: 1/1)" srcset="assets/hero/v1/mobile-start.webp"><img class="start-poster" src="assets/hero/v1/desktop-start.webp" alt="" fetchpriority="high"></picture>
+          <video id="hero-video" muted playsinline preload="none" tabindex="-1"></video>
+        </div>
+        <svg class="ivory-wash" aria-hidden="true" preserveAspectRatio="none">
+          <defs><linearGradient id="reading-fade" x2="0" y2="1"><stop offset="0" stop-color="#f7f3eb"/><stop offset=".25" stop-color="#f7f3eb" stop-opacity=".78"/><stop offset=".58" stop-color="#f7f3eb" stop-opacity="0"/></linearGradient><mask id="focus-window" maskUnits="userSpaceOnUse"><rect width="100%" height="100%" fill="white"/><path class="focus-cutout" fill="black"/></mask></defs>
+          <g mask="url(#focus-window)"><rect class="focus-shade" width="100%" height="100%" fill="#f7f3eb"/><rect width="100%" height="100%" fill="url(#reading-fade)"/></g>
+        </svg>
+        <div class="part-highlight" hidden aria-hidden="true"><svg class="part-outline"><path class="outline-halo" pathLength="1"></path><path class="outline-color" pathLength="1"></path></svg><svg class="part-leader"><path pathLength="1"></path><circle r="3.5"></circle></svg><div class="part-label"><strong></strong><span class="part-description"></span><span class="part-price"></span></div></div>
+        <div class="story-beats">
+          <div class="story-beat active"><p class="eyebrow">A little help. A lot of possibility.</p><h1>We need your help.</h1></div>
+          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">Meet our robotics class</p><h2>Big ideas.<span>A classroom ready to build.</span></h2></div>
+          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">The next step</p><h2 class="tools-copy">Help us get the tools<span>to bring those ideas to life.</span></h2><h2 class="gripper-copy">Bring those ideas<span>to life.</span></h2></div>
+          <div class="story-beat match-beat" inert aria-hidden="true"><h2>Help us reach <span data-total-goal>$4,000</span>.</h2><p class="match-breakdown"><span><b data-community-goal>$2,000</b> from our community.</span><span>Matched by our school.</span></p></div>
+          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">One community. One shared goal.</p><h2>That’s where you come in.</h2></div>
+          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">Baked today. Built tomorrow.</p><h2>A sourdough bake sale.<span>For our next big build.</span></h2><p class="story-date" data-sale-date hidden></p><div class="actions"><a class="button" data-payment="bread" href="#support-info">Buy sourdough</a><a class="button" data-payment="donate" href="#support-info">Donate directly</a></div></div>
+        </div>
+        <p class="preview-note" id="media-preview-note" hidden>Still preview · motion in production</p>
+        <nav class="version-switch" aria-label="Preview scene" hidden><button type="button" data-version="v1" aria-pressed="true">Warm</button><button type="button" data-version="v2" aria-pressed="false">Studio</button></nav>
+        <div class="story-tools"><span class="story-progress"><span id="scroll-label">Scroll to discover</span><span class="story-progress-line" aria-hidden="true"><i></i></span><span id="chapter-count" aria-hidden="true">01 / 06</span></span></div>
+      </div>
+    </section>
+    <div class="story-transcript"><p>Our robotics class has big ideas. We need the tools to bring them to life.</p><p>Our goal is <strong data-total-goal>$4,000</strong>: <span data-community-goal>$2,000</span> from our community, matched with <span data-school-match>$2,000</span> from our school.</p><p>That’s where you come in. Buy sourdough or donate directly to help us build what’s next.</p></div>
+    <div class="details" id="project" tabindex="-1"><div class="wrap">
+      <section id="bread" class="sale-section" aria-labelledby="bread-title">
+        <img class="sticker sticker-loaf" data-decoration src="assets/illustrations/loaf.webp" alt="" aria-hidden="true" width="640" height="640" loading="lazy">
+        <h2 id="bread-title">Order sourdough.</h2>
+        <dl class="sale-facts">
+          <div><dt>Your order</dt><dd data-bread-details>Price and loaf details coming soon</dd></div>
+          <div><dt>Order by</dt><dd data-order-deadline>Date coming soon</dd></div>
+          <div><dt>Pickup</dt><dd><span data-pickup>Date coming soon</span><span class="pickup-logistics" data-pickup-logistics>Time and location coming soon</span></dd></div>
+        </dl>
+        <div class="sale-actions"><a class="button" href="#support-info" data-payment="bread">Buy sourdough</a><a class="donation-link" href="#support-info" data-payment="donate">Donate directly</a></div>
+      </section>
+      <section class="match-story" aria-labelledby="match-title">
+        <div class="match-art" aria-hidden="true"><img class="sticker sticker-carrier" src="assets/illustrations/bread-robot.webp" alt="" width="640" height="640" loading="lazy"></div>
+        <div class="match-copy"><h2 id="match-title">Our school doubles it.</h2><p>The <span data-community-goal>$2,000</span> we raise becomes <mark><span data-total-goal>$4,000</span> for our class</mark>, thanks to our school’s matching contribution.</p></div>
+      </section>
+      <section id="funding" class="funding-section" aria-labelledby="budget-title">
+        <img class="sticker sticker-tools" data-decoration src="assets/illustrations/tools.webp" alt="" aria-hidden="true" width="640" height="640" loading="lazy"><div class="funding-copy"><h2 id="budget-title">Then we get building.</h2><p>We’re learning to design, build, and program robots. Here’s what this fundraiser will help pay for.</p>
+          <div class="progress-block" hidden><label for="fundraising-progress"><span data-raised-copy></span><span data-progress-percent></span></label><progress id="fundraising-progress" max="4000" value="0"></progress></div>
+        </div>
+        <div class="funding-costs"><ul class="budget-list">
+          <li class="budget-row"><h3>AI robotics kit</h3><span class="budget-price" data-budget="0" hidden></span></li>
+          <li class="budget-row"><h3>Field &amp; game elements</h3><span class="budget-price" data-budget="1" hidden></span></li>
+          <li class="budget-row"><h3>Robot parts &amp; spares</h3><span class="budget-price" data-budget="2" hidden></span></li>
+          <li class="budget-row"><h3>Competition &amp; event fees</h3><span class="budget-price" data-budget="3" hidden></span></li>
+          <li class="budget-row"><h3>Tools, batteries &amp; storage</h3><span class="budget-price" data-budget="4" hidden></span></li>
+        </ul><p class="budget-note" id="budget-note">Itemized costs are being finalized.</p></div>
+      </section>
+      <section id="class" class="class-section" aria-labelledby="class-title">
+        <img class="sticker sticker-class" data-decoration src="assets/illustrations/class-robot.webp" alt="" aria-hidden="true" width="640" height="640" loading="lazy"><h2 id="class-title">From our class.</h2>
+        <p class="class-note">We’re the robotics enrichment class at Akiba Yavneh Academy. Thank you for helping us get the tools to build our robots.</p>
+        <figure class="class-art" hidden><img id="class-photo" alt="Akiba Yavneh Academy robotics enrichment class" loading="lazy"><img id="class-illustration" class="illustration" alt="" aria-hidden="true" loading="lazy"><figcaption>Our robotics class at Akiba Yavneh Academy.</figcaption></figure>
+      </section>
+      <aside class="support-info" id="support-info" aria-labelledby="support-title"><h2 id="support-title">Orders and donations open soon.</h2><p>School payment links, loaf pricing, and pickup logistics are still being finalized.</p></aside>
+      <footer class="site-footer"><span>Akiba Yavneh Academy · Robotics enrichment</span><a href="#top">Back to top ↑</a></footer>
+    </div></div>
+  </main>
+  <aside class="support-bar" aria-label="Support the robotics class"><div class="bar-copy"><strong>Baked today. Built tomorrow.</strong><span>A sourdough fundraiser for AYA Robotics.</span></div><div><div class="actions"><a class="button" href="#support-info" data-payment="bread">Buy sourdough</a><a class="button" href="#support-info" data-payment="donate">Donate directly</a></div><p class="deadline" data-deadline hidden></p></div></aside>
+  <dialog id="payment-notice" aria-labelledby="notice-title" aria-describedby="notice-copy"><h2 id="notice-title">Pre-orders open soon.</h2><p id="notice-copy">We’re finalizing the school payment link. Please check back when the fundraiser opens.</p><form method="dialog"><button class="button">Got it</button></form></dialog>
+  <!-- CAMPAIGN SETTINGS: edit this single JSON block. Use null for details not yet confirmed.
+       communityRaised is community money ONLY, before the school match.
+       heroEquipment prices are PREVIEW PLACEHOLDERS, separate from the actual budget.
+       Replace each price and set confirmed to true only once its cost is verified.
+       Payment URLs must be school-provided HTTPS links. Do not use personal payment accounts.
+       Budget entries must sum to totalGoal. Class images must depict the actual supplied group. -->
+  <script id="campaign-config" type="application/json">
+  {
+    "totalGoal": 4000,
+    "communityGoal": 2000,
+    "schoolMatchCap": 2000,
+    "communityRaised": null,
+    "heroEquipment": {
+      "camera": {"price": 700, "confirmed": false},
+      "wheels": {"price": 250, "confirmed": false},
+      "gripper": {"price": 200, "confirmed": false}
+    },
+    "breadUrl": null,
+    "donationUrl": null,
+    "loafPrice": null,
+    "orderIncludes": null,
+    "pickupDate": "2026-09-21",
+    "pickupTime": null,
+    "pickupLocation": null,
+    "saleDate": null,
+    "deadline": "2026-09-18",
+    "budget": [
+      {"label": "AI robotics kit", "amount": null},
+      {"label": "Field & game elements", "amount": null},
+      {"label": "Robot parts & spares", "amount": null},
+      {"label": "Competition & event fees", "amount": null},
+      {"label": "Tools, batteries & storage", "amount": null}
+    ],
+    "classPhoto": null,
+    "classIllustration": null
+  }
+  </script>
+  <!-- HERO MEDIA: endpoint-linked Higgsfield scene variants; final motion review is tracked by approved.
+       Timeline pairs map normalized scroll progress to seconds, including inspection holds. -->
+  <script id="hero-media" type="application/json">
+  {"approved":false,"previewSwitcher":true,"budgetBytesPerDeviceVariant":45000000,"variants":{"v1":{"label":"Warm","approved":true,"desktop":{"video":"assets/hero/v1/desktop-tour-hosting.mp4","start":"assets/hero/v1/desktop-start.webp","sensor":"assets/hero/v1/desktop-sensor.webp","drive":"assets/hero/v1/desktop-drive.webp","contact":"assets/hero/v1/desktop-contact.webp","end":"assets/hero/v1/desktop-end.webp"},"mobile":{"video":"assets/hero/v1/mobile-tour-hosting.mp4","start":"assets/hero/v1/mobile-start.webp","sensor":"assets/hero/v1/mobile-sensor.webp","drive":"assets/hero/v1/mobile-drive.webp","contact":"assets/hero/v1/mobile-contact.webp","end":"assets/hero/v1/mobile-end.webp"}},"v2":{"label":"Studio","approved":true,"desktop":{"video":"assets/hero/v2/desktop-tour.mp4","start":"assets/hero/v2/desktop-start.webp","sensor":"assets/hero/v2/desktop-sensor.webp","drive":"assets/hero/v2/desktop-drive.webp","contact":"assets/hero/v2/desktop-contact.webp","end":"assets/hero/v2/desktop-end.webp"},"mobile":{"video":"assets/hero/v2/mobile-tour.mp4","start":"assets/hero/v2/mobile-start.webp","sensor":"assets/hero/v2/mobile-sensor.webp","drive":"assets/hero/v2/mobile-drive.webp","contact":"assets/hero/v2/mobile-contact.webp","end":"assets/hero/v2/mobile-end.webp"}}},"timeline":[[0,0],[0.08,0],[0.23,4],[0.32,4],[0.41,8],[0.50,8],[0.83,12],[0.97,16],[1,16]]}
+  </script>
+  <script>
+  (() => {
+    'use strict';
+    const config = JSON.parse(document.querySelector('#campaign-config').textContent);
+    const all = selector => Array.from(document.querySelectorAll(selector));
+    const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: Number.isInteger(n) ? 0 : 2 }).format(n);
+    const safeUrl = value => { try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; } catch { return null; } };
+    const finite = n => typeof n === 'number' && Number.isFinite(n) && n >= 0;
+    const dateLabel = value => { if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return ''; const date = new Date(value + 'T12:00:00Z'); if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0,10) !== value) return ''; return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago' }).format(date); };
+    if (finite(config.totalGoal)) all('[data-total-goal]').forEach(el => el.textContent = money(config.totalGoal));
+    if (finite(config.communityGoal)) all('[data-community-goal]').forEach(el => el.textContent = money(config.communityGoal));
+    if (finite(config.schoolMatchCap)) all('[data-school-match]').forEach(el => el.textContent = money(config.schoolMatchCap));
+    const deadline = dateLabel(config.deadline);
+    if (deadline) {
+      all('[data-deadline]').forEach(el => { el.textContent = 'Order sourdough by ' + deadline; el.hidden = false; });
+      document.querySelector('[data-order-deadline]').textContent = deadline;
+    }
+    if (finite(config.loafPrice) && config.orderIncludes) document.querySelector('[data-bread-details]').textContent = money(config.loafPrice) + ' · ' + config.orderIncludes;
+    if(dateLabel(config.pickupDate))document.querySelector('[data-pickup]').textContent=dateLabel(config.pickupDate);
+    const pickupLogistics=[config.pickupTime,config.pickupLocation].filter(Boolean);
+    if(pickupLogistics.length)document.querySelector('[data-pickup-logistics]').textContent=pickupLogistics.join(' · ')+(pickupLogistics.length<2?(config.pickupTime?' · Location coming soon':' · Time coming soon'):'');
+    const rows = all('.budget-row');
+    if (Array.isArray(config.budget)) config.budget.slice(0, rows.length).forEach((item, i) => {
+      if (item.label) rows[i].querySelector('h3').textContent = item.label;
+      if (finite(item.amount)) { const el = rows[i].querySelector('.budget-price'); el.textContent = money(item.amount); el.hidden = false; }
+    });
+    if (config.budget?.length === rows.length && config.budget.every(item => finite(item.amount))) document.querySelector('#budget-note').hidden = true;
+    if (finite(config.communityRaised) && finite(config.schoolMatchCap) && config.totalGoal > 0) {
+      const total = config.communityRaised + Math.min(config.communityRaised, config.schoolMatchCap);
+      document.querySelector('[data-raised-copy]').textContent = money(total) + ' with the school match';
+      document.querySelector('[data-progress-percent]').textContent = Math.round(total / config.totalGoal * 100) + '%';
+      const progress = document.querySelector('#fundraising-progress');
+      progress.max = config.totalGoal; progress.value = Math.min(total, config.totalGoal);
+      progress.setAttribute('aria-label', money(config.communityRaised) + ' in community gifts; ' + money(total) + ' including the school match');
+      document.querySelector('.progress-block').hidden = false;
+    }
+    const notice = document.querySelector('#payment-notice');
+    all('[data-payment]').forEach(link => {
+      const bread = link.dataset.payment === 'bread';
+      const url = safeUrl(bread ? config.breadUrl : config.donationUrl);
+      if (url) { link.href = url; return; }
+      link.addEventListener('click', event => {
+        if (typeof notice.showModal !== 'function') return;
+        event.preventDefault();
+        document.querySelector('#notice-title').textContent = bread ? 'Pre-orders open soon.' : 'Donations open soon.';
+        document.querySelector('#notice-copy').textContent = bread ? 'We’re finalizing the school’s sourdough order link, pricing, and pickup details. Please check back when the fundraiser opens.' : 'We’re finalizing the school’s donation link. Please check back when the fundraiser opens.';
+        notice.showModal();
+      });
+    });
+    if (safeUrl(config.breadUrl) && safeUrl(config.donationUrl)) document.querySelector('.support-info').hidden = true;
+    notice.addEventListener('click', event => { if (event.target !== notice) return; const r = notice.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) notice.close(); });
+    const bar = document.querySelector('.support-bar');
+    const sizeBar = () => document.documentElement.style.setProperty('--bar-height', bar.offsetHeight + 'px');
+    if ('ResizeObserver' in window) new ResizeObserver(sizeBar).observe(bar);
+    sizeBar();
+
+
+    const saleDate = dateLabel(config.saleDate);
+    const heroDate=saleDate || dateLabel(config.pickupDate);
+    if (heroDate) { document.querySelector('[data-sale-date]').textContent=(saleDate?'':'Pickup · ')+heroDate; document.querySelector('[data-sale-date]').hidden=false; }
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const portrait = matchMedia('(max-aspect-ratio: 1/1)');
+    const media = JSON.parse(document.querySelector('#hero-media').textContent);
+    const story = document.querySelector('.story');
+    const stage = document.querySelector('.story-stage');
+    const frame = document.querySelector('.media-frame');
+    const video = document.querySelector('#hero-video');
+    const beats = all('.story-beat');
+    const cue = document.querySelector('.story-progress');
+    const versionSwitch = document.querySelector('.version-switch');
+    const previewNote = document.querySelector('#media-preview-note');
+    let version = new URL(location.href).searchParams.get('version') === 'v2' ? 'v2' : 'v1';
+    const currentMedia = () => media.variants[version];
+    const mediaForDevice = () => currentMedia()[portrait.matches ? 'mobile' : 'desktop'];
+    const highlight = document.querySelector('.part-highlight');
+    const outline = document.querySelector('.part-outline');
+    const leader = document.querySelector('.part-leader');
+    const partLabel = document.querySelector('.part-label');
+    const wash=document.querySelector('.ivory-wash'), cutout=document.querySelector('.focus-cutout');
+    const detailImages = new Map();
+    // Paths are traced in the original stills' coordinate plane. Scale this
+    // plane with the actual cover crop; never position outlines by viewport guesswork.
+    const parts = {
+  camera:{name:'AI sensor',description:'Helps the robot see',title:'Big ideas.',copy:'A classroom ready to build.',frame:'sensor',
+    desktop:{path:'M 1353 300 L 1417 284 L 1600 305 Q 1621 310 1628 327 L 1625 444 Q 1618 464 1582 472 L 1357 444 Q 1333 439 1330 422 L 1327 343 Q 1327 320 1353 300 Z',anchor:[1331,350],label:[.48,.16],position:.5},
+    mobile:{path:'M 614 900 L 663 883 L 830 914 Q 845 916 846 937 L 844 1058 Q 838 1077 815 1078 L 611 1042 Q 594 1038 595 1020 L 595 921 Q 595 908 614 900 Z',anchor:[662,885],label:[.07,.31],position:.5}},
+  wheels:{name:'Wheels',description:'Move the robot',title:'Help us get the tools',copy:'to bring those ideas to life.',frame:'drive',
+    desktop:{path:'M 1307 642 C 1208 646 1148 722 1137 865 C 1125 1007 1192 1104 1300 1116 C 1411 1130 1509 1077 1555 981 C 1609 862 1588 749 1511 685 C 1458 642 1375 628 1307 642 Z',anchor:[1140,910],label:[.13,.79],position:.5},
+    mobile:{path:'M 738 1266 C 611 1266 533 1392 516 1511 C 496 1649 552 1769 656 1803 C 758 1837 887 1795 956 1708 C 1027 1617 1031 1472 977 1369 C 929 1280 829 1253 738 1266 Z',anchor:[656,1803],label:[.055,.34],position:1}},
+  gripper:{name:'Gripper',description:'Picks up objects',title:'Big ideas.',copy:'A classroom ready to build.',frame:'drive',
+    desktop:{path:'M 522 311 Q 493 309 472 336 L 193 535 L 148 560 L 140 594 L 186 660 L 220 679 L 315 617 L 292 569 L 257 549 L 548 378 Q 570 340 548 320 Z M 599 300 Q 558 303 541 345 L 359 612 L 275 658 Q 248 674 256 701 L 284 750 L 324 774 L 414 722 L 642 406 Q 677 376 667 343 Q 658 308 623 300 Z',anchor:[285,752],label:[.07,.78],position:0},
+    mobile:{path:'M 321 791 L 218 872 L 77 969 L 17 1078 L 63 1113 L 141 1005 L 259 924 L 359 838 Z M 386 766 Q 351 770 336 805 L 228 1005 L 141 1093 L 146 1117 L 194 1148 L 286 1067 L 411 846 Q 437 801 410 779 Z',anchor:[191,1145],label:[.075,.615],position:0}}
+};
+    const prepareDetails = view => {
+      if(!view || reduced.matches)return null;
+      const device=portrait.matches?'mobile':'desktop', key=version+'-'+device+'-'+view;
+      if(!detailImages.has(key)){
+        const image=new Image();image.className='detail-image';image.alt='';image.fetchPriority='low';
+        image.addEventListener('load',schedule);image.src=mediaForDevice()[view];
+        frame.append(image);detailImages.set(key,image);
+      }
+      return detailImages.get(key);
+    };
+    const easeBetween=(start,end,value)=>{
+      const t=Math.max(0,Math.min(1,(value-start)/(end-start)));
+      return t*t*(3-2*t);
+    };
+    const showDetail=(chapter,local,progress=0)=>{
+      const enabled=!isStatic(), device=portrait.matches?'mobile':'desktop';
+      const sensorHold=progress>=.24 && progress<=.31, driveHold=progress>=.42 && progress<.50;
+      const part=sensorHold?'camera':progress<.46?'wheels':'gripper';
+      const hold=enabled && (sensorHold || driveHold);
+      const approved=currentMedia().approved===true;
+      // Pending motion uses the complete endpoint story, retaining every chapter
+      // and its inspection holds without requesting a nonexistent video.
+      const previewView=chapter===1?'sensor':chapter===2 || chapter===3?'drive':chapter===4?'contact':null;
+      const still=enabled?prepareDetails(approved?(hold?(sensorHold?'sensor':'drive'):null):previewView):null;
+      const stillReady=Boolean(still?.complete && still.naturalWidth>0);
+      const decoded=hold && (approved?(ready && !video.seeking && Math.abs(video.currentTime-(sensorHold?4:8))<.07):stillReady);
+      for(const image of detailImages.values())image.classList.toggle('active',image===still && stillReady && (!approved || decoded));
+      story.classList.toggle('is-detail',enabled && chapter>=1 && chapter<=3);
+      story.classList.toggle('is-gripper',enabled && progress>=.46 && progress<.50);
+      story.classList.toggle('is-funding',enabled && chapter===3);
+      // Ease off the ivory between components so the complete robot comes back into view.
+      const entrance=sensorHold?easeBetween(.24,.255,progress):part==='wheels'?easeBetween(.42,.435,progress):easeBetween(.463,.478,progress);
+      const exit=sensorHold?1-easeBetween(.295,.31,progress):part==='wheels'?1-easeBetween(.445,.46,progress):1-easeBetween(.487,.50,progress);
+      const emphasis=entrance*exit;
+      const baseWash=easeBetween(.18,.24,progress)*(1-easeBetween(.59,.69,progress));
+      const washAmount=enabled?baseWash*(driveHold ? .40+.44*emphasis : .84):0;
+      wash.style.opacity=washAmount;
+      wash.setAttribute('viewBox',`0 0 ${stage.clientWidth} ${stage.clientHeight}`);
+      cutout.removeAttribute('d');
+      highlight.hidden=true;
+      if(!decoded || emphasis<.002)return;
+      highlight.style.opacity=emphasis;
+      outline.style.strokeDasharray='1';outline.style.strokeDashoffset=1-entrance;
+      partLabel.style.transform=`translateY(${(1-entrance)*12}px)`;
+      if(chapter===2){
+        beats[2].style.opacity=part==='wheels'?1-easeBetween(.445,.46,progress):easeBetween(.463,.478,progress);
+        beats[2].style.transform=`translateY(${(1-entrance)*8}px)`;
+      }
+      const data=parts[part], trace=currentMedia().outlines?.[part]?.[device] || data[device];
+      const w=stage.clientWidth,h=stage.clientHeight,sw=device==='mobile'?1158:2048,sh=device==='mobile'?2048:1158;
+      const iw=still?.naturalWidth || video.videoWidth,ih=still?.naturalHeight || video.videoHeight;
+      const scale=Math.max(w/iw,h/ih),aw=iw*scale,ah=ih*scale,x=(w-aw)/2,y=h-ah,sx=aw/sw,sy=ah/sh;
+      outline.setAttribute('viewBox',`0 0 ${sw} ${sh}`);outline.setAttribute('preserveAspectRatio','none');
+      Object.assign(outline.style,{width:aw+'px',height:ah+'px',left:x+'px',top:y+'px'});
+      outline.querySelectorAll('path').forEach(path=>path.setAttribute('d',trace.path));
+      cutout.setAttribute('fill',`rgb(${Math.round(255*(1-emphasis))} ${Math.round(255*(1-emphasis))} ${Math.round(255*(1-emphasis))})`);
+      cutout.setAttribute('d',trace.path);cutout.setAttribute('transform',`translate(${x} ${y}) scale(${sx} ${sy})`);
+      const equipment=config.heroEquipment?.[part];
+      partLabel.querySelector('strong').textContent=data.name;
+      partLabel.querySelector('.part-description').textContent=data.description;
+      partLabel.querySelector('.part-price').textContent=equipment?money(equipment.price):'';
+      highlight.hidden=false;
+      const safeBottom=h-bar.offsetHeight-75;
+      const copyBottom=beats[chapter].getBoundingClientRect().bottom-stage.getBoundingClientRect().top;
+      const preferredTop=device==='mobile' && part!=='gripper'?Math.max(h*trace.label[1],copyBottom+22):h*trace.label[1];
+      const bx=Math.max(18,Math.min(w*trace.label[0],w-partLabel.offsetWidth-18));
+      const by=Math.max(18,Math.min(preferredTop,safeBottom-partLabel.offsetHeight));
+      Object.assign(partLabel.style,{left:bx+'px',top:by+'px'});
+      const bw=partLabel.offsetWidth,bh=partLabel.offsetHeight,ax=x+trace.anchor[0]*sx,ay=y+trace.anchor[1]*sy;
+      const inside=ax>=bx&&ax<=bx+bw,lx=inside?Math.max(bx+12,Math.min(bx+bw-12,ax)):(ax<bx?bx:bx+bw),ly=inside?(ay<by?by:by+bh):by+bh/2;
+      leader.setAttribute('viewBox',`0 0 ${w} ${h}`);
+      leader.querySelector('path').setAttribute('d',`M ${lx} ${ly} L ${ax} ${ay}`);
+      leader.querySelector('circle').setAttribute('cx',ax);leader.querySelector('circle').setAttribute('cy',ay);
+      highlight.dataset.part=part;
+    };
+    const updateVariantPictures=()=>{
+      for(const name of ['start','end']){
+        const picture=document.querySelector('.'+name+'-picture');
+        picture.querySelector('source').srcset=currentMedia().mobile[name];
+        picture.querySelector('img').src=currentMedia().desktop[name];
+      }
+      story.dataset.version=version;
+      versionSwitch.hidden=media.previewSwitcher!==true;
+      previewNote.hidden=currentMedia().approved===true;
+      versionSwitch.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.version===version)));
+    };
+    let failed=false, ready=false, queued=false, desiredTime=0, range=0, timer, chosenSource=null, fit=true;
+    const isStatic=()=>reduced.matches || failed || !fit;
+    const seek=()=>{ if(!ready || isStatic() || video.seeking) return; if(Math.abs(video.currentTime-desiredTime)>.025) video.currentTime=desiredTime; };
+    video.addEventListener('seeked',()=>{seek();schedule();});
+    const timeAtProgress=progress=>{
+      const timeline=media.timeline;
+      // Stay within the media duration while allowing its final 24 fps frame.
+      const lastTime=Math.max(0,video.duration-.001);
+      if(!timeline)return progress*lastTime;
+      const upper=timeline.findIndex(point=>point[0]>=progress);
+      if(upper<=0)return 0;
+      const [p0,t0]=timeline[upper-1], [p1,t1]=timeline[upper];
+      return Math.min(lastTime,t0+(t1-t0)*(progress-p0)/(p1-p0));
+    };
+    const activate=(index,opacity=1,offset=0)=>{
+      beats.forEach((beat,i)=>{
+        const active=i===index;
+        beat.classList.toggle('active',active);beat.inert=!active;
+        if(active)beat.removeAttribute('aria-hidden');else beat.setAttribute('aria-hidden','true');
+        beat.style.opacity=active?opacity:0;beat.style.transform=active?'translateY('+offset+'px)':'none';
+      });
+      story.dataset.chapter=String(index);
+    };
+    const update=()=>{
+      queued=false;
+      const box=story.getBoundingClientRect();
+      document.body.classList.toggle('in-story',box.bottom>innerHeight*.6 && box.top<innerHeight);
+      if(isStatic())return;
+      const progress=Math.max(0,Math.min(1,-box.top/range));
+      // A shorter funding beat releases into the invitation and existing bread motion.
+      const chapters=[0,1/6,2/6,.50,.60,5/6,1];
+      let chapter=0;
+      while(chapter<5 && progress>=chapters[chapter+1])chapter++;
+      const local=(progress-chapters[chapter])/(chapters[chapter+1]-chapters[chapter]);
+      // Each chapter holds its copy for most of its interval; the boundary fades are scroll-controlled.
+      const opacity=chapter===0 && local<.12 ? 1 : Math.min(1,.25+local/.12);
+      const fadeOut=chapter===5 ? 1 : Math.min(1,.25+(1-local)/.12);
+      activate(chapter,Math.min(opacity,fadeOut),Math.max(0,1-local/.12)*8);
+      showDetail(chapter,local,progress);
+      // Let the smaller match explanation follow the headline as the film advances.
+      document.querySelector('.match-breakdown').style.opacity=chapter===3?easeBetween(.505,.525,progress):1;
+      if(chapter===2 && progress>=.445){
+        const textReveal=progress<.46?1-easeBetween(.445,.46,progress):easeBetween(.463,.478,progress);
+        beats[2].style.opacity=textReveal;
+      }
+      story.classList.toggle('is-ending',progress>=5/6);
+      const endPoster=document.querySelector('.end-poster');
+      // Use the exact approved ending only after the final video frame settles.
+      story.classList.toggle('is-final-frame',progress>=.97 && ready && !video.seeking && video.currentTime>=video.duration-1/24 && endPoster.complete && endPoster.naturalWidth>0);
+      story.style.setProperty('--story-progress',progress);
+      document.querySelector('#chapter-count').textContent=String(chapter+1).padStart(2,'0')+' / 06';
+      document.querySelector('#scroll-label').textContent=chapter===5?'The next build starts here':'Scroll to discover';
+      if(ready){desiredTime=timeAtProgress(progress);seek();}
+    };
+    const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(update);}};
+    document.querySelector('.end-poster').addEventListener('load',schedule);
+    const assessFit=()=>{
+      // If larger text cannot fit above the action, switch to the complete flowing story.
+      story.classList.add('measuring-story');
+      const top=innerHeight*.17, available=Math.min(innerHeight*.43,innerHeight-bar.offsetHeight-85-top);
+      fit=beats.every(beat=>beat.scrollHeight<=available) && innerHeight>=480 && top+beats[0].scrollHeight<innerHeight-bar.offsetHeight-85;
+      story.classList.remove('measuring-story');
+    };
+    const configure=()=>{
+      clearTimeout(timer);
+      document.documentElement.style.setProperty('--stage-height',innerHeight+'px');
+      range=innerHeight*5;
+      document.documentElement.style.setProperty('--story-run',range+'px');
+      assessFit();
+      const disabled=isStatic();
+      story.classList.toggle('is-scroll',!disabled);
+      story.classList.toggle('is-readable',!fit);
+      frame.classList.toggle('is-static',disabled);
+      cue.hidden=disabled;
+      const src=currentMedia().approved && mediaForDevice().video;
+      if(disabled){video.pause();activate(0);showDetail(0,0);}
+      else if(src && src!==chosenSource){
+        chosenSource=src;ready=false;frame.classList.remove('has-video');
+        video.src=src;video.preload='auto';video.load();
+      }
+      if(src && !ready && !disabled)timer=setTimeout(()=>failMedia(),18000);
+      schedule();
+    };
+    const failMedia=()=>{
+      const box=story.getBoundingClientRect(),wasInStory=box.top<=0 && box.bottom>=innerHeight-1;
+      failed=true;ready=false;clearTimeout(timer);frame.classList.remove('has-video');configure();
+      if(wasInStory && scrollY>story.offsetTop)scrollTo(0,story.offsetTop);
+    };
+    video.addEventListener('loadeddata',()=>{clearTimeout(timer);ready=true;frame.classList.add('has-video');schedule();});
+    video.addEventListener('error',failMedia);
+    versionSwitch.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
+      if(version===button.dataset.version)return;
+      const box=story.getBoundingClientRect(),wasScrolling=!isStatic();
+      const progress=range?Math.max(0,Math.min(1,-box.top/range)):0;
+      version=button.dataset.version;
+      const url=new URL(location.href);url.searchParams.set('version',version);history.replaceState(null,'',url);
+      clearTimeout(timer);ready=false;failed=false;chosenSource=null;
+      video.pause();video.removeAttribute('src');video.load();frame.classList.remove('has-video');
+      for(const image of detailImages.values())image.remove();detailImages.clear();highlight.hidden=true;
+      updateVariantPictures();configure();
+      if(wasScrolling && box.top<=0 && box.bottom>=innerHeight)scrollTo(0,story.offsetTop+progress*range);
+    }));
+    updateVariantPictures();
+    reduced.addEventListener('change',()=>{
+      const box=story.getBoundingClientRect(),wasInStory=box.top<=0 && box.bottom>=innerHeight-1;
+      configure();
+      if(reduced.matches && wasInStory)scrollTo(0,story.offsetTop);
+    });portrait.addEventListener('change',configure);
+    addEventListener('scroll',schedule,{passive:true});
+    addEventListener('resize',()=>{sizeBar();configure();},{passive:true});
+    document.fonts.ready.then(configure);
+    configure();
+    if (config.classPhoto) {
+      const photo = document.querySelector('#class-photo');
+      const illustration = document.querySelector('#class-illustration');
+      const art = document.querySelector('.class-art');
+      // Hidden lazy images never load in Chromium; reveal only after decoding the actual pair.
+      photo.loading = 'eager';
+      photo.src = config.classPhoto;
+      const showClass = async () => {
+        try { await photo.decode(); } catch { return; }
+        if (config.classIllustration && !reduced.matches) {
+          illustration.loading = 'eager';
+          illustration.src = config.classIllustration;
+          try { await illustration.decode(); } catch { illustration.hidden = true; }
+        } else illustration.hidden = true;
+        art.hidden = false;
+        if (!illustration.hidden && 'IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(entries => {
+            if (entries.some(e => e.isIntersecting)) {
+              requestAnimationFrame(() => requestAnimationFrame(() => art.classList.add('revealed')));
+              observer.disconnect();
+            }
+          }, { threshold: .5 });
+          observer.observe(art);
+        } else art.classList.add('revealed');
+      };
+      showClass();
+    }
+
+  })();
+  </script>
+</body>
+</html>
