@@ -22,6 +22,14 @@
     .story{position:relative;isolation:isolate}.story.is-scroll{height:calc(var(--stage-height) + var(--story-run))}.story-stage{position:relative;height:var(--stage-height);min-height:480px;overflow:hidden;background:#e9ddc4}.is-scroll .story-stage{position:sticky;top:0}
     .story-header{position:absolute;top:max(25px,env(safe-area-inset-top));left:var(--gutter);right:var(--gutter);display:flex;align-items:start;justify-content:space-between;gap:20px;z-index:5}.wordmark{font-size:12px;line-height:1.4;text-decoration:none;font-weight:600}.wordmark span{display:block;font-size:10px;font-weight:400;margin-top:3px}.skip-story{font-size:12px;text-decoration:none;min-height:44px;display:flex;align-items:center;gap:12px}.skip-story:hover{text-decoration:underline}
     .media-frame,.media-frame picture,.media-frame img,.media-frame video{position:absolute;inset:0;width:100%;height:100%}.media-frame img,.media-frame video{object-fit:cover;object-position:center bottom}.media-frame{pointer-events:none}.start-picture{opacity:0}.is-scroll .start-picture{opacity:1}.end-picture{opacity:1}.media-frame video{opacity:0}.has-video video{opacity:1}.is-static video{opacity:0}.is-scroll.is-ending .start-picture{opacity:0}
+    /* Preserve the complete robot on tall phones, square, 4:3, and ultrawide screens. */
+    @media(max-aspect-ratio:565/1000), (min-aspect-ratio:801/1000) and (max-aspect-ratio:3/2), (min-aspect-ratio:2/1){
+      .story-stage{background:var(--paper)}
+      .media-frame img,.media-frame video{object-fit:contain}
+    }
+    @media(max-aspect-ratio:565/1000){.media-frame{mask-image:linear-gradient(to bottom,transparent calc(100% - 176.8566vw),#000 calc(100% - 176.8566vw + 48px))}}
+    @media(min-aspect-ratio:801/1000) and (max-aspect-ratio:3/2){.media-frame{mask-image:linear-gradient(to bottom,transparent calc(100% - 56.25vw),#000 calc(100% - 56.25vw + 48px))}}
+    @media(min-aspect-ratio:2/1){.media-frame{mask-image:linear-gradient(to right,transparent calc(50% - var(--stage-height)*.8889),#000 calc(50% - var(--stage-height)*.8889 + 48px),#000 calc(50% + var(--stage-height)*.8889 - 48px),transparent calc(50% + var(--stage-height)*.8889))}}
     .is-final-frame .media-frame video{opacity:0}
     .story-beats{position:absolute;z-index:2;top:16%;left:var(--gutter);right:var(--gutter);text-align:center}.story-beat{display:none;margin-inline:auto;max-width:850px}.story-beat:first-child{display:block}.is-scroll .story-beat{display:block;position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden;pointer-events:none;will-change:opacity,transform}.is-scroll .story-beat.active{visibility:visible;pointer-events:auto}.story-beat h1,.story-beat h2{font-size:clamp(36px,4.7vw,72px)}.story-beat h2 span{display:block}.story-beat .eyebrow{margin-bottom:15px}.story-beat .actions{justify-content:center;margin-top:20px}.match-beat h2 span+span{margin-top:.12em}.story-beat .story-date{font-size:14px;margin-top:15px}
     .story-tools{position:absolute;z-index:4;bottom:calc(var(--bar-height) + 14px);left:var(--gutter);right:var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11px}.story-progress{display:flex;align-items:center;gap:14px;white-space:nowrap;font-family:SpaceMono,monospace}.story-progress-line{width:72px;height:1px;background:rgba(53,39,32,.25)}.story-progress-line i{display:block;height:1px;background:var(--ink);transform-origin:left;transform:scaleX(var(--story-progress,0))}.preview-note{position:absolute;z-index:4;bottom:calc(var(--bar-height) + 62px);right:var(--gutter);font-size:10px;background:rgba(247,243,235,.9);padding:4px 9px;border-radius:3px}.story-transcript{padding:35px var(--gutter);background:var(--paper);max-width:850px;margin:auto}.story-transcript p+p{margin-top:12px}.story-transcript strong{font-weight:600}.is-scroll+.story-transcript{display:none}
@@ -45,9 +53,9 @@
     .is-detail .story-beat{margin-left:0}
     .part-highlight{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}.part-outline{position:absolute;overflow:visible}.part-outline path{fill:none;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}.outline-color{stroke:var(--wine);stroke-width:2.4}.outline-halo{stroke:var(--paper);stroke-width:5.5;opacity:.85}.part-leader{position:absolute;inset:0;width:100%;height:100%}.part-leader path{fill:none;stroke:var(--wine);stroke-width:1.5;stroke-linejoin:round}.part-leader circle{fill:var(--wine);stroke:var(--paper);stroke-width:1.5}
     .part-label{position:absolute;padding:10px 14px 12px;background:rgba(247,243,235,.97);border-left:3px solid var(--wine);width:max-content;max-width:250px}.part-label strong{display:block;font:400 28px/1.12 Fraunces,Georgia,serif;letter-spacing:-.025em}.part-label span{display:block;font-size:15px;line-height:1.4;margin-top:5px}
-    .version-switch{position:absolute;z-index:6;top:76px;right:var(--gutter);display:flex;padding:3px;gap:3px;border:1px solid rgba(53,39,32,.2);background:rgba(247,243,235,.95);border-radius:25px}.version-switch button{padding:7px 14px;min-height:38px;background:transparent;border-radius:22px;font-size:12px}.version-switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
-    
-    @media(max-width:760px){.is-detail .story-beats{top:16%;left:22px;right:22px;width:auto;text-align:center}.is-detail .story-beat{margin-left:auto;max-width:440px}.is-detail .story-beat h2{font-size:clamp(29px,7.7vw,45px)}.part-label{padding:8px 10px 10px;max-width:195px}.part-label strong{font-size:24px}.part-label span{font-size:12px}.outline-color{stroke-width:2}.outline-halo{stroke-width:4.5}.version-switch{top:70px}.version-switch button{font-size:11px;min-height:36px;padding:6px 12px}}
+
+
+    @media(max-width:760px){.is-detail .story-beats{top:16%;left:22px;right:22px;width:auto;text-align:center}.is-detail .story-beat{margin-left:auto;max-width:440px}.is-detail .story-beat h2{font-size:clamp(29px,7.7vw,45px)}.part-label{padding:8px 10px 10px;max-width:195px}.part-label strong{font-size:24px}.part-label span{font-size:12px}.outline-color{stroke-width:2}.outline-halo{stroke-width:4.5}}
     @media(max-width:360px){.story-progress{font-size:8px;gap:8px}.story-progress-line{display:none}}
     .ivory-wash{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0}.focus-shade{opacity:.18}.is-funding .focus-shade{opacity:.10}
     .part-label{padding:0;background:none;border:0;max-width:240px}.part-label .part-price{font:400 29px/1.15 Fraunces,Georgia,serif;margin-top:10px}
@@ -56,7 +64,7 @@
     .is-funding .story-beats{left:var(--gutter);right:var(--gutter);width:auto;text-align:center}.is-funding .story-beat{margin-inline:auto}.match-breakdown{font-size:clamp(17px,1.45vw,21px);line-height:1.5;margin-top:18px}.match-breakdown span{display:block}
     @media(max-width:760px){.part-label{max-width:195px}.part-label .part-price{font-size:26px;margin-top:8px}.outline-color{stroke-width:3}.outline-halo{stroke-width:6.5}.match-breakdown{font-size:18px;margin-top:20px}}
     @media(max-height:650px){.match-breakdown{font-size:17px;margin-top:12px}}
-    
+
     @media(max-width:760px){.story-beats{top:max(17%,128px)}.is-detail .story-beats{top:max(16%,128px)}}
     @media(max-width:760px) and (max-height:650px){.is-detail .story-beat>.eyebrow{display:none}.is-detail .story-beat h2{font-size:27px}}
     .part-label,.match-breakdown{isolation:isolate}.match-breakdown{position:relative}
@@ -93,8 +101,8 @@
       <div class="story-stage">
         <header class="story-header"><a class="wordmark" href="#top">Akiba Yavneh Academy<span>Robotics enrichment · Dallas, TX</span></a><a class="skip-story" href="#project">Fundraiser details <span aria-hidden="true">↗</span></a></header>
         <div class="media-frame" aria-hidden="true">
-          <picture class="end-picture"><source media="(max-aspect-ratio: 1/1)" srcset="assets/hero/v1/mobile-end.webp"><img class="end-poster" src="assets/hero/v1/desktop-end.webp" alt="" fetchpriority="high"></picture>
-          <picture class="start-picture"><source media="(max-aspect-ratio: 1/1)" srcset="assets/hero/v1/mobile-start.webp"><img class="start-poster" src="assets/hero/v1/desktop-start.webp" alt="" fetchpriority="high"></picture>
+          <picture class="end-picture"><source media="(max-aspect-ratio: 4/5)" srcset="assets/hero/v1/mobile-end.webp"><img class="end-poster" src="assets/hero/v1/desktop-end.webp" alt="" fetchpriority="high"></picture>
+          <picture class="start-picture"><source media="(max-aspect-ratio: 4/5)" srcset="assets/hero/v1/mobile-start.webp"><img class="start-poster" src="assets/hero/v1/desktop-start.webp" alt="" fetchpriority="high"></picture>
           <video id="hero-video" muted playsinline preload="none" tabindex="-1"></video>
         </div>
         <svg class="ivory-wash" aria-hidden="true" preserveAspectRatio="none">
@@ -111,7 +119,6 @@
           <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">Baked today. Built tomorrow.</p><h2>A sourdough bake sale.<span>For our next big build.</span></h2><p class="story-date" data-sale-date hidden></p><div class="actions"><a class="button" data-payment="bread" href="#support-info">Buy sourdough</a><a class="button" data-payment="donate" href="#support-info">Donate directly</a></div></div>
         </div>
         <p class="preview-note" id="media-preview-note" hidden>Still preview · motion in production</p>
-        <nav class="version-switch" aria-label="Preview scene" hidden><button type="button" data-version="v1" aria-pressed="true">Warm</button><button type="button" data-version="v2" aria-pressed="false">Studio</button></nav>
         <div class="story-tools"><span class="story-progress"><span id="scroll-label">Scroll to discover</span><span class="story-progress-line" aria-hidden="true"><i></i></span><span id="chapter-count" aria-hidden="true">01 / 06</span></span></div>
       </div>
     </section>
@@ -191,10 +198,10 @@
     "classIllustration": null
   }
   </script>
-  <!-- HERO MEDIA: endpoint-linked Higgsfield scene variants; final motion review is tracked by approved.
+  <!-- HERO MEDIA: approved Warm Higgsfield scene, with separate desktop and phone media.
        Timeline pairs map normalized scroll progress to seconds, including inspection holds. -->
   <script id="hero-media" type="application/json">
-  {"approved":false,"previewSwitcher":true,"budgetBytesPerDeviceVariant":45000000,"variants":{"v1":{"label":"Warm","approved":true,"desktop":{"video":"assets/hero/v1/desktop-tour-hosting.mp4","start":"assets/hero/v1/desktop-start.webp","sensor":"assets/hero/v1/desktop-sensor.webp","drive":"assets/hero/v1/desktop-drive.webp","contact":"assets/hero/v1/desktop-contact.webp","end":"assets/hero/v1/desktop-end.webp"},"mobile":{"video":"assets/hero/v1/mobile-tour-hosting.mp4","start":"assets/hero/v1/mobile-start.webp","sensor":"assets/hero/v1/mobile-sensor.webp","drive":"assets/hero/v1/mobile-drive.webp","contact":"assets/hero/v1/mobile-contact.webp","end":"assets/hero/v1/mobile-end.webp"}},"v2":{"label":"Studio","approved":true,"desktop":{"video":"assets/hero/v2/desktop-tour.mp4","start":"assets/hero/v2/desktop-start.webp","sensor":"assets/hero/v2/desktop-sensor.webp","drive":"assets/hero/v2/desktop-drive.webp","contact":"assets/hero/v2/desktop-contact.webp","end":"assets/hero/v2/desktop-end.webp"},"mobile":{"video":"assets/hero/v2/mobile-tour.mp4","start":"assets/hero/v2/mobile-start.webp","sensor":"assets/hero/v2/mobile-sensor.webp","drive":"assets/hero/v2/mobile-drive.webp","contact":"assets/hero/v2/mobile-contact.webp","end":"assets/hero/v2/mobile-end.webp"}}},"timeline":[[0,0],[0.08,0],[0.23,4],[0.32,4],[0.41,8],[0.50,8],[0.83,12],[0.97,16],[1,16]]}
+  {"approved":true,"budgetBytesPerDeviceVariant":45000000,"variants":{"v1":{"label":"Warm","approved":true,"desktop":{"video":"assets/hero/v1/desktop-tour-hosting.mp4","start":"assets/hero/v1/desktop-start.webp","sensor":"assets/hero/v1/desktop-sensor.webp","drive":"assets/hero/v1/desktop-drive.webp","contact":"assets/hero/v1/desktop-contact.webp","end":"assets/hero/v1/desktop-end.webp"},"mobile":{"video":"assets/hero/v1/mobile-tour-hosting.mp4","start":"assets/hero/v1/mobile-start.webp","sensor":"assets/hero/v1/mobile-sensor.webp","drive":"assets/hero/v1/mobile-drive.webp","contact":"assets/hero/v1/mobile-contact.webp","end":"assets/hero/v1/mobile-end.webp"}}},"timeline":[[0,0],[0.08,0],[0.23,4],[0.32,4],[0.41,8],[0.5,8],[0.83,12],[0.97,16],[1,16]]}
   </script>
   <script>
   (() => {
@@ -257,7 +264,7 @@
     const heroDate=saleDate || dateLabel(config.pickupDate);
     if (heroDate) { document.querySelector('[data-sale-date]').textContent=(saleDate?'':'Pickup · ')+heroDate; document.querySelector('[data-sale-date]').hidden=false; }
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const portrait = matchMedia('(max-aspect-ratio: 1/1)');
+    const portrait = matchMedia('(max-aspect-ratio: 4/5)');
     const media = JSON.parse(document.querySelector('#hero-media').textContent);
     const story = document.querySelector('.story');
     const stage = document.querySelector('.story-stage');
@@ -265,9 +272,8 @@
     const video = document.querySelector('#hero-video');
     const beats = all('.story-beat');
     const cue = document.querySelector('.story-progress');
-    const versionSwitch = document.querySelector('.version-switch');
     const previewNote = document.querySelector('#media-preview-note');
-    let version = new URL(location.href).searchParams.get('version') === 'v2' ? 'v2' : 'v1';
+    const version = 'v1'; // Warm is the only published scene, including legacy version links.
     const currentMedia = () => media.variants[version];
     const mediaForDevice = () => currentMedia()[portrait.matches ? 'mobile' : 'desktop'];
     const highlight = document.querySelector('.part-highlight');
@@ -340,7 +346,8 @@
       const data=parts[part], trace=currentMedia().outlines?.[part]?.[device] || data[device];
       const w=stage.clientWidth,h=stage.clientHeight,sw=device==='mobile'?1158:2048,sh=device==='mobile'?2048:1158;
       const iw=still?.naturalWidth || video.videoWidth,ih=still?.naturalHeight || video.videoHeight;
-      const scale=Math.max(w/iw,h/ih),aw=iw*scale,ah=ih*scale,x=(w-aw)/2,y=h-ah,sx=aw/sw,sy=ah/sh;
+      const contain=getComputedStyle(video).objectFit==='contain';
+      const scale=(contain?Math.min:Math.max)(w/iw,h/ih),aw=iw*scale,ah=ih*scale,x=(w-aw)/2,y=h-ah,sx=aw/sw,sy=ah/sh;
       outline.setAttribute('viewBox',`0 0 ${sw} ${sh}`);outline.setAttribute('preserveAspectRatio','none');
       Object.assign(outline.style,{width:aw+'px',height:ah+'px',left:x+'px',top:y+'px'});
       outline.querySelectorAll('path').forEach(path=>path.setAttribute('d',trace.path));
@@ -353,7 +360,7 @@
       highlight.hidden=false;
       const safeBottom=h-bar.offsetHeight-75;
       const copyBottom=beats[chapter].getBoundingClientRect().bottom-stage.getBoundingClientRect().top;
-      const preferredTop=device==='mobile' && part!=='gripper'?Math.max(h*trace.label[1],copyBottom+22):h*trace.label[1];
+      const preferredTop=contain && device==='desktop' && part==='gripper' && ah<h ? h*.24 : device==='mobile' && part!=='gripper'?Math.max(h*trace.label[1],copyBottom+22):h*trace.label[1];
       const bx=Math.max(18,Math.min(w*trace.label[0],w-partLabel.offsetWidth-18));
       const by=Math.max(18,Math.min(preferredTop,safeBottom-partLabel.offsetHeight));
       Object.assign(partLabel.style,{left:bx+'px',top:by+'px'});
@@ -364,16 +371,14 @@
       leader.querySelector('circle').setAttribute('cx',ax);leader.querySelector('circle').setAttribute('cy',ay);
       highlight.dataset.part=part;
     };
-    const updateVariantPictures=()=>{
+    const updateWarmPictures=()=>{
       for(const name of ['start','end']){
         const picture=document.querySelector('.'+name+'-picture');
         picture.querySelector('source').srcset=currentMedia().mobile[name];
         picture.querySelector('img').src=currentMedia().desktop[name];
       }
       story.dataset.version=version;
-      versionSwitch.hidden=media.previewSwitcher!==true;
       previewNote.hidden=currentMedia().approved===true;
-      versionSwitch.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.version===version)));
     };
     let failed=false, ready=false, queued=false, desiredTime=0, range=0, timer, chosenSource=null, fit=true;
     const isStatic=()=>reduced.matches || failed || !fit;
@@ -439,6 +444,10 @@
       story.classList.remove('measuring-story');
     };
     const configure=()=>{
+      // Keep the same story moment when browser bars or window dimensions change.
+      const previousRange=range, previousTop=story.getBoundingClientRect().top;
+      const wasInStory=story.classList.contains('is-scroll') && previousRange>0 && previousTop<=0 && -previousTop<=previousRange;
+      const previousProgress=wasInStory?Math.max(0,Math.min(1,-previousTop/previousRange)):0;
       clearTimeout(timer);
       document.documentElement.style.setProperty('--stage-height',innerHeight+'px');
       range=innerHeight*5;
@@ -456,6 +465,7 @@
         video.src=src;video.preload='auto';video.load();
       }
       if(src && !ready && !disabled)timer=setTimeout(()=>failMedia(),18000);
+      if(wasInStory)scrollTo(0,story.offsetTop+(disabled?0:previousProgress*range));
       schedule();
     };
     const failMedia=()=>{
@@ -465,19 +475,7 @@
     };
     video.addEventListener('loadeddata',()=>{clearTimeout(timer);ready=true;frame.classList.add('has-video');schedule();});
     video.addEventListener('error',failMedia);
-    versionSwitch.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
-      if(version===button.dataset.version)return;
-      const box=story.getBoundingClientRect(),wasScrolling=!isStatic();
-      const progress=range?Math.max(0,Math.min(1,-box.top/range)):0;
-      version=button.dataset.version;
-      const url=new URL(location.href);url.searchParams.set('version',version);history.replaceState(null,'',url);
-      clearTimeout(timer);ready=false;failed=false;chosenSource=null;
-      video.pause();video.removeAttribute('src');video.load();frame.classList.remove('has-video');
-      for(const image of detailImages.values())image.remove();detailImages.clear();highlight.hidden=true;
-      updateVariantPictures();configure();
-      if(wasScrolling && box.top<=0 && box.bottom>=innerHeight)scrollTo(0,story.offsetTop+progress*range);
-    }));
-    updateVariantPictures();
+    updateWarmPictures();
     reduced.addEventListener('change',()=>{
       const box=story.getBoundingClientRect(),wasInStory=box.top<=0 && box.bottom>=innerHeight-1;
       configure();
