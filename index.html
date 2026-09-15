@@ -43,7 +43,6 @@
     dialog{border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);padding:30px;max-width:440px;width:calc(100% - 36px)}dialog::backdrop{background:rgba(40,30,24,.45)}dialog h2{font-size:30px}dialog p{font-size:15px;margin-top:16px}dialog form{margin-top:24px}
     @media(max-width:760px){:root{--gutter:23px}.story-header{top:max(20px,env(safe-area-inset-top));gap:15px}.wordmark{font-size:11px;max-width:150px}.wordmark span{font-size:9px}.skip-story{font-size:10px;gap:5px}.story-beats{top:17%;left:22px;right:22px}.story-beat h1,.story-beat h2{font-size:clamp(34px,8.8vw,54px)}.story-beat .eyebrow{font-size:9px;margin-bottom:15px}.story-beat .actions{gap:8px;margin-top:16px}.story-beat .button{font-size:12px;padding:10px 12px;min-height:44px}.story-tools{bottom:calc(var(--bar-height) + 8px);gap:8px}.story-progress{font-size:9px;gap:8px}.story-progress-line{width:34px}.preview-note{bottom:calc(var(--bar-height) + 53px);font-size:9px}.support-bar{padding-inline:18px;gap:0}.support-bar>div:last-child{width:100%}.support-bar .button{flex:1;min-width:0;padding-inline:12px;font-size:13px}.story-transcript{font-size:15px}}
     @media(max-height:650px) and (min-width:761px){.story-beats{top:15%}.story-beat h1,.story-beat h2{font-size:clamp(32px,4vw,50px)}.story-beat .eyebrow{margin-bottom:9px}.story-beat .actions{margin-top:10px}.story-beat .button{min-height:44px;padding:8px 16px}.story-header{top:15px}}
-    @media(max-width:760px){.story-beat .actions{display:none}}
     .story.measuring-story .story-beat{display:block;position:absolute;visibility:hidden}.match-beat b{font-weight:400}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}.class-art .illustration{opacity:0}.story-stage{position:relative!important}.start-picture{opacity:0!important}}
     .story.is-readable .story-stage{height:auto;min-height:var(--stage-height);padding-bottom:calc(var(--bar-height) + 95px)}.is-readable .story-beats{position:relative;top:auto;left:auto;right:auto;padding:120px var(--gutter) 45vh;background:linear-gradient(var(--paper),rgba(247,243,235,.88) 55%,transparent)}.is-readable .story-beat h1{font-size:clamp(36px,8vw,72px)}
@@ -92,6 +91,10 @@
     .details .support-info h2{font-size:13px;line-height:1.6;letter-spacing:0}.support-info{max-width:none;margin-left:264px;padding:0 0 28px}.site-footer{border:0;padding-top:24px}body:not(.in-story) .support-bar{border-top:0;box-shadow:0 -5px 24px rgba(53,39,32,.045)}
     @media(min-width:761px) and (max-width:1050px){.sale-section,.match-story,.funding-section,.class-section{grid-template-columns:160px minmax(0,1fr);column-gap:40px}.sticker,.match-art{width:160px;height:160px}.support-info{margin-left:200px}.sale-facts{gap:18px}.sale-facts dd{font-size:17px}}
     @media(max-width:760px){.details>.wrap{max-width:520px;padding-top:28px}.sale-section,.match-story,.funding-section,.class-section{grid-template-columns:minmax(0,1fr);gap:20px;padding:20px 0 36px;text-align:center}.sticker-loaf,.sticker-tools,.sticker-class,.match-art{grid-column:1;grid-row:1;align-self:start}.sticker,.match-art{width:124px;height:124px}.sale-section>h2,.sale-facts,.sale-actions,.match-copy,.funding-copy,.funding-costs,.class-section>h2,.class-note{grid-column:1;grid-row:auto}.details h2{font-size:32px}.sale-section h2{font-size:36px}.sale-facts{grid-template-columns:1fr;gap:20px;margin:3px 0}.sale-facts dd{font-size:20px}.sale-actions{justify-content:center;gap:16px 22px}.match-copy p{font-size:17px;margin-top:16px}.funding-copy>p{font-size:16px;margin-top:16px}.funding-costs{text-align:left}.budget-list{max-width:360px;margin:auto}.budget-note{text-align:center}.budget-row h3{font-size:15px}.class-note{font-size:16px}.class-art{grid-column:1}.support-info{text-align:center;margin-left:0;padding:0 0 28px}.site-footer{justify-content:center;text-align:center;gap:0 20px}}
+    /* Restore the final actions beneath the headline, sized to the available page. */
+    .story-beat .ending-actions{width:min(100%,clamp(320px,32vw,460px));margin:clamp(18px,2.5vh,28px) auto 0;gap:clamp(8px,1vw,14px);flex-wrap:nowrap}
+    .ending-actions .button{flex:1;min-width:0;min-height:clamp(46px,4vw,58px);padding:12px clamp(12px,1.5vw,24px);font-size:clamp(13px,1.1vw,16px)}
+    body.in-story:has(.story.is-scroll .story-beat:last-child.active) .support-bar{visibility:hidden;pointer-events:none}
   </style>
 </head>
 <body>
@@ -116,7 +119,7 @@
           <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">The next step</p><h2 class="tools-copy">Help us get the tools<span>to bring those ideas to life.</span></h2><h2 class="gripper-copy">Bring those ideas<span>to life.</span></h2></div>
           <div class="story-beat match-beat" inert aria-hidden="true"><h2>Help us reach <span data-total-goal>$4,000</span>.</h2><p class="match-breakdown"><span><b data-community-goal>$2,000</b> from our community.</span><span>Matched by our school.</span></p></div>
           <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">One community. One shared goal.</p><h2>That’s where you come in.</h2></div>
-          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">Baked today. Built tomorrow.</p><h2>A sourdough bake sale.<span>For our next big build.</span></h2><p class="story-date" data-sale-date hidden></p></div>
+          <div class="story-beat" inert aria-hidden="true"><p class="eyebrow">Baked today. Built tomorrow.</p><h2>A sourdough bake sale.<span>For our next big build.</span></h2><p class="story-date" data-sale-date hidden></p><div class="actions ending-actions"><a class="button" data-payment="bread" href="#support-info">Buy sourdough</a><a class="button" data-payment="donate" href="#support-info">Donate directly</a></div></div>
         </div>
         <p class="preview-note" id="media-preview-note" hidden>Still preview · motion in production</p>
         <div class="story-tools"><span class="story-progress"><span id="scroll-label">Scroll to discover</span><span class="story-progress-line" aria-hidden="true"><i></i></span><span id="chapter-count" aria-hidden="true">01 / 06</span></span></div>
@@ -155,7 +158,7 @@
         <p class="class-note">We’re the robotics enrichment class at Akiba Yavneh Academy. Thank you for helping us get the tools to build our robots.</p>
         <figure class="class-art" hidden><img id="class-photo" alt="Akiba Yavneh Academy robotics enrichment class" loading="lazy"><img id="class-illustration" class="illustration" alt="" aria-hidden="true" loading="lazy"><figcaption>Our robotics class at Akiba Yavneh Academy.</figcaption></figure>
       </section>
-      <aside class="support-info" id="support-info" aria-labelledby="support-title"><h2 id="support-title">Orders and donations open soon.</h2><p>School payment links, loaf pricing, and pickup logistics are still being finalized.</p></aside>
+      <aside class="support-info" id="support-info" aria-labelledby="support-title"><h2 id="support-title">Donations are open. Sourdough orders coming soon.</h2><p>You can donate directly now. The sourdough order link, loaf pricing, and pickup details are still being finalized.</p></aside>
       <footer class="site-footer"><span>Akiba Yavneh Academy · Robotics enrichment</span><a href="#top">Back to top ↑</a></footer>
     </div></div>
   </main>
@@ -179,7 +182,7 @@
       "gripper": {"price": 200, "confirmed": false}
     },
     "breadUrl": null,
-    "donationUrl": null,
+    "donationUrl": "https://host.nxt.blackbaud.com/adaptive-donor-form/?formId=d8884b63-7173-4615-a2b9-012777d9e473&envid=p-Rg9qWPvbEUuR2CCi3LR3rw&zone=usa",
     "loafPrice": null,
     "orderIncludes": null,
     "pickupDate": "2026-09-21",
