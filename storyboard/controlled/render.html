@@ -1,0 +1,39 @@
+<!doctype html><html><body style="margin:0"><canvas width="1280" height="720" id="c"></canvas><script>
+// Video compositing: the final approved frame is the immutable parts inventory.
+const c=document.querySelector('canvas'), ctx=c.getContext('2d');
+const source=new Image();source.src='source-frame.png';
+const make=()=>Object.assign(document.createElement('canvas'),{width:1280,height:720});
+const raw=make(), plate=make(), parts=[];
+function sprite(name,poly,dx,dy,start,end,z){
+ const cv=make(),g=cv.getContext('2d');g.drawImage(raw,0,0);const im=g.getImageData(0,0,1280,720),d=im.data;
+ for(let i=0;i<d.length;i+=4){const r=d[i],green=d[i+1],b=d[i+2];const blue=Math.min((b-r*1.6)/35,(b-green*1.42)/30);d[i+3]=Math.round(255*(1-Math.max(0,Math.min(1,blue))));}
+ g.putImageData(im,0,0);g.globalCompositeOperation='destination-in';g.beginPath();poly.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();g.fill();
+ parts.push({name,cv,dx,dy,start,end,z});
+}
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+window.draw=t=>{
+ ctx.clearRect(0,0,1280,720);ctx.drawImage(plate,0,0);
+ for(const p of [...parts].sort((a,b)=>a.z-b.z)){
+  const v=ease(Math.max(0,Math.min(1,(t-p.start)/(p.end-p.start))));
+  ctx.save();ctx.translate(p.dx*v,p.dy*v);ctx.shadowColor='rgba(0,18,35,.25)';ctx.shadowBlur=4;ctx.shadowOffsetY=4;ctx.drawImage(p.cv,0,0);ctx.restore();
+ }
+ if(t<.3){ctx.globalAlpha=1-t/.3;ctx.drawImage(raw,0,0);ctx.globalAlpha=1;}
+ return c.toDataURL('image/png').split(',')[1];
+};
+source.addEventListener('load',()=>{
+ raw.getContext('2d').drawImage(source,0,0,1280,720);
+ const bg=plate.getContext('2d');bg.drawImage(raw,0,0);
+ // Clean mat sampled from the empty left side; no synthetic hardware.
+ for(let x=520;x<1280;x+=260)bg.drawImage(raw,130,0,260,720,x,0,260,720);
+ sprite('chassis',[[690,282],[928,184],[1076,310],[1064,381],[839,452],[705,332]],0,0,0,0.01,3);
+ sprite('rear-left wheel',[[1040,113],[1119,108],[1190,172],[1180,231],[1124,237],[1043,192]],-390,100,.3,1.7,1);
+ sprite('rear-right wheel',[[1120,248],[1170,215],[1250,208],[1268,259],[1237,315],[1170,328],[1120,291]],-155,100,1.1,2.5,5);
+ sprite('front-right wheel',[[1081,369],[1120,324],[1175,319],[1226,361],[1227,425],[1179,443],[1115,413]],-195,-170,1.9,3.3,2);
+ sprite('front-left wheel',[[974,448],[999,414],[1050,398],[1092,431],[1120,484],[1090,523],[1034,511],[978,479]],-230,-5,2.7,4.1,6);
+ sprite('wire harness',[[878,547],[949,524],[1016,509],[1058,538],[1052,578],[994,609],[900,613],[880,588]],-80,-222,4.4,5.7,7);
+ sprite('electronics deck',[[663,123],[686,72],[725,72],[851,12],[881,13],[881,50],[945,66],[966,129],[785,226],[754,215]],80,160,5.6,7.1,8);
+ sprite('sensor',[[579,372],[619,342],[695,368],[749,387],[764,440],[720,455],[682,497],[617,476]],130,-90,7.5,8.9,10);
+ sprite('gripper',[[650,565],[688,516],[753,468],[791,463],[826,488],[877,533],[864,555],[818,545],[781,597],[711,623],[684,602]],-15,-145,9.1,10.6,11);
+ window.ready=true;draw(0);
+},{once:true});
+</script></body></html>
